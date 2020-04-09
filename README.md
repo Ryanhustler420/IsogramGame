@@ -53,3 +53,5 @@ show that the game has an image at all.
 - keep project name "Game"
 - keep solution name "cowAndBullGame"
 - click Done or Create
+- Now right click on the project on solution explorer and go to Add -> New Item... > Choose C++ File(.cpp) and call this **main.cpp** (easy way to do, because it will connect the source file with project)
+- Another way is the create the main.cpp manually with File -> New -> File... > Choose C++ File(.cpp) and it will open a file called Sourse1.cpp now as soon as you save this it will ask you to save to any location and you gonna choose the same directory but hey this is still unattached with the project, you can attach this to project if you right click on project in solution explorer and go to Add -> Existing Item... than Add that saved file, than it gonna attach that file to project...

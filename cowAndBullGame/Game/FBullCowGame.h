@@ -29,9 +29,9 @@ public:
 	int32 GetMaxTries() const; // const only works inside class only
 	int32 GetCurrentTryCount() const;
 	int32 GetHiddenWordLength() const;
-	
 	bool IsGameWon() const;
 	bool IsLowerCase(FString) const;
+	
 	bool IsIsogram(FString);
 	EGuessWordStatus checkGuessValidity(FString); // TODO: make a more rich return value.
 	
@@ -45,4 +45,5 @@ private:
 	int32 MyCurrentTry;
 	int32 MyMaxTries;
 	FString MyHiddenWord;
+	bool bGameIsWon;
 };

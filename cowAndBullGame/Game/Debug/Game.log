@@ -1,7 +1,7 @@
 ﻿  FBullCowGame.cpp
-C:\Users\TimeMAchine\Documents\GitHub\IsogramGame\cowAndBullGame\Game\FBullCowGame.cpp(25,32): warning C4018: '<': signed/unsigned mismatch
-C:\Users\TimeMAchine\Documents\GitHub\IsogramGame\cowAndBullGame\Game\FBullCowGame.cpp(29,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\TimeMAchine\Documents\GitHub\IsogramGame\cowAndBullGame\Game\FBullCowGame.cpp(31,28): warning C4018: '<': signed/unsigned mismatch
+C:\Users\TimeMAchine\Documents\GitHub\IsogramGame\cowAndBullGame\Game\FBullCowGame.cpp(27,32): warning C4018: '<': signed/unsigned mismatch
+C:\Users\TimeMAchine\Documents\GitHub\IsogramGame\cowAndBullGame\Game\FBullCowGame.cpp(31,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\TimeMAchine\Documents\GitHub\IsogramGame\cowAndBullGame\Game\FBullCowGame.cpp(33,28): warning C4018: '<': signed/unsigned mismatch
   main.cpp
   Generating Code...
   Game.vcxproj -> C:\Users\TimeMAchine\Documents\GitHub\IsogramGame\cowAndBullGame\Debug\Game.exe

@@ -1,4 +1,3 @@
 ﻿  FBullCowGame.cpp
 C:\Users\TimeMAchine\Documents\GitHub\IsogramGame\cowAndBullGame\Game\FBullCowGame.cpp(58,21): warning C4018: '>': signed/unsigned mismatch
-C:\Users\TimeMAchine\Documents\GitHub\IsogramGame\cowAndBullGame\Game\FBullCowGame.cpp(74,59): warning C4018: '<': signed/unsigned mismatch
   Game.vcxproj -> C:\Users\TimeMAchine\Documents\GitHub\IsogramGame\cowAndBullGame\Debug\Game.exe

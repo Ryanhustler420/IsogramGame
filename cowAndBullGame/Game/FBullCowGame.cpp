@@ -20,7 +20,7 @@ void FBullCowGame::Reset()
 	MyMaxTries = MAX_TRIES;
 
 	// Can't use constexpr for strings..
-	const FString HIDDEN_WORD = "planet";
+	const FString HIDDEN_WORD = "ant";
 	MyHiddenWord = HIDDEN_WORD;
 
 	MyCurrentTry = 1;
@@ -57,34 +57,23 @@ FBullCowCount FBullCowGame::SubmitGuess(FString Guess)
 	// checking for Guess length if increases than return
 	if (Guess.length() > HiddenWordLength) return BullCowCount;
 
-	for (int32 i = 0; i < HiddenWordLength; i++)
+	for (int32 MHWChar = 0; MHWChar < HiddenWordLength; MHWChar++)
 	{
 		// compare letters against the hidden word
-		for (int32 j = 0; j < HiddenWordLength; j++)
+		for (int32 GChar = 0; GChar < HiddenWordLength; GChar++)
 		{
-			char currentHiddenChar = MyHiddenWord[i];
 			// We need to first check if "first char of hidden" word is at the right position of Guessed Word.
-			if (currentHiddenChar == Guess[j])
+			if (MyHiddenWord[MHWChar] == Guess[GChar])
 			{
-				BullCowCount.Bulls++;
-			}
-			else
-			{
-				// checks if the word is even present in the string at all.
-				for (int32 nestCheckCounter = i + 1; nestCheckCounter < Guess.length(); nestCheckCounter++)
+				if (MHWChar == GChar)
 				{
-					if (currentHiddenChar == Guess[nestCheckCounter]) {
-						BullCowCount.Cows++;
-						break;
-					}
+					BullCowCount.Bulls++; // increament bull
+				}
+				else
+				{
+					BullCowCount.Cows++; // must be a cow;
 				}
 			}
-
-			// bull -> right char at the right position
-			// cow -> right char at the wrong position
-
-			// hidden word -> hello
-			// guessed word -> holle
 		}
 	}
 	return BullCowCount;

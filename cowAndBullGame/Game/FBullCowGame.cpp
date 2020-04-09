@@ -2,25 +2,18 @@
 
 using int32 = int;
 
-FBullCowGame::FBullCowGame()
-{
-	Reset();
-}
+FBullCowGame::FBullCowGame(){Reset();}
 
-int32 FBullCowGame::GetMaxTries() const {
-	// MyMaxTries = 1; // Won't work
-	return MyMaxTries;
-}
-
+int32 FBullCowGame::GetMaxTries() const {return MyMaxTries;}
 int32 FBullCowGame::GetCurrentTryCount() const {return MyCurrentTry;}
+int32 FBullCowGame::GetHiddenWordLength() const{return MyHiddenWord.length();}
 
 void FBullCowGame::Reset()
 {
 	constexpr int MAX_TRIES = 8;
-	MyMaxTries = MAX_TRIES;
-
-	// Can't use constexpr for strings..
 	const FString HIDDEN_WORD = "ant";
+	
+	MyMaxTries = MAX_TRIES;
 	MyHiddenWord = HIDDEN_WORD;
 
 	MyCurrentTry = 1;
@@ -32,7 +25,7 @@ bool FBullCowGame::IsGameWon() const
 	return false;
 }
 
-bool FBullCowGame::checkGuessValidity(FString)
+bool FBullCowGame::checkGuessValidity(FString) const
 {
 	return false;
 }

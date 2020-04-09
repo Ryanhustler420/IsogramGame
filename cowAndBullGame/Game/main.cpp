@@ -70,9 +70,8 @@ FText GetGuess()
 void PrintIntro()
 {
 	// introduce the game
-	constexpr int32 WORD_LENTH = 9;
-	std::cout << "Welcome to Bulls and Cows, a fun word game.\n"; // following inconsistency meaning if using \n than use only that, btw \n doesn't flesh the output buffer
-	std::cout << "Can you guess the " << WORD_LENTH;
+	std::cout << "Welcome to Bulls and Cows, a fun word game.\n";
+	std::cout << "Can you guess the " << BCGame.GetHiddenWordLength();
 	std::cout << " lette isogram I'm thinking of?\n";
 	std::cout << std::endl;
 	return; // always do this

@@ -1,14 +1,12 @@
 #include<iostream>
 #include<string>
 
-using namespace std;
-
 void PrintIntro();
 void PlayGame();
 bool AskToPlayAgain();
-string GetGuess();
+std::string GetGuess();
 
-const string EMPTY_STRING = "";
+const std::string EMPTY_STRING = "";
 
 // the entry point for out application
 int main()
@@ -29,17 +27,17 @@ void PlayGame()
 	constexpr int NUMBER_OF_TURNS = 5;
 	for (int count = 1; count <= NUMBER_OF_TURNS; count++)
 	{
-		cout << "Your guess was: " << GetGuess();
-		cout << endl << endl;
+		std::cout << "Your guess was: " << GetGuess();
+		std::cout << std::endl << std::endl;
 	}
 }
 
-string GetGuess() 
+std::string GetGuess()
 {
 	// get a guess from the player
-	cout << "Enter your guess: ";
-	string Guess = EMPTY_STRING;
-	getline(cin, Guess);
+	std::cout << "Enter your guess: ";
+	std::string Guess = EMPTY_STRING;
+	std::getline(std::cin, Guess);
 	return Guess;
 }
 
@@ -47,17 +45,17 @@ void PrintIntro()
 {
 	// introduce the game
 	constexpr int WORD_LENTH = 9;
-	cout << "Welcome to Bulls and Cows, a fun word game.\n"; // following inconsistency meaning if using \n than use only that, btw \n doesn't flesh the output buffer
-	cout << "Can you guess the " << WORD_LENTH;
-	cout << " lette isogram I'm thinking of?\n";
-	cout << endl;
+	std::cout << "Welcome to Bulls and Cows, a fun word game.\n"; // following inconsistency meaning if using \n than use only that, btw \n doesn't flesh the output buffer
+	std::cout << "Can you guess the " << WORD_LENTH;
+	std::cout << " lette isogram I'm thinking of?\n";
+	std::cout << std::endl;
 	return; // always do this
 }
 
 bool AskToPlayAgain()
 {
-	cout << "Do you want to play again (y/n)?";
-	string Response = EMPTY_STRING;
-	getline(cin, Response);
+	std::cout << "Do you want to play again (y/n)?";
+	std::string Response = EMPTY_STRING;
+	std::getline(std::cin, Response);
 	return (Response[0] == 'y') || (Response[0] == 'Y');
 }

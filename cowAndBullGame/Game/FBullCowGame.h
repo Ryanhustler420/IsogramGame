@@ -1,5 +1,5 @@
 #pragma once
-// Please do-not use name spaces here...
+#include<string>
 
 class FBullCowGame 
 {
@@ -9,7 +9,7 @@ public:
 	int GetMaxTries();
 	int GetCurrentTryCount();
 	bool IsGameWon();
-	bool checkGuessValidity(string); // TODO: make a more rich return value.
+	bool checkGuessValidity(std::string); // TODO: make a more rich return value.
 	// void PlayGame();
 	// bool IsIsogram();
 	// bool IsGivenWordLengthMatchWithHiddenWord();

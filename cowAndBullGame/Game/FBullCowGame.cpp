@@ -20,15 +20,53 @@ void FBullCowGame::Reset()
 	return;
 }
 
+bool FBullCowGame::IsIsogram(FString Guess)
+{
+	for (int32 charAt = 0; charAt < Guess.length(); charAt++)
+	{
+		// If at any time we encounter 2 
+		// same characters, return false 
+		for (int32 i = 0; i < Guess.length() - 1; i++) 
+		{
+			for (int32 j = i + 1; j < Guess.length(); j++)
+			{
+				if (Guess[i] == Guess[j]) { return false; }
+			}
+		}
+	}
+	return true;
+}
+
 bool FBullCowGame::IsGameWon() const
 {
 	return false;
 }
 
-EWordStatus FBullCowGame::checkGuessValidity(FString) const
+bool FBullCowGame::IsLowerCase(FString Guess) const
 {
+	for (auto& c : Guess)
+		if (!std::islower(static_cast<unsigned char>(c)))return false;
+	return true;
+}
 
-	return EWordStatus::OK; // TODO: make actual error
+EGuessWordStatus FBullCowGame::checkGuessValidity(FString Guess) 
+{ 
+	if (!IsIsogram(Guess)) // if the guess isn't an isogram
+	{
+		return EGuessWordStatus::Not_Isogram;
+	}
+	else if (!IsLowerCase(Guess)) // if the guess isn't all lowercase
+	{
+		return EGuessWordStatus::Not_LowerCase;
+	}
+	else if (Guess.length() != GetHiddenWordLength()) // if the guess length is wrong
+	{
+		return EGuessWordStatus::Wrong_Length;
+	}
+	else // otherwise return ok
+	{
+		return EGuessWordStatus::OK;
+	}
 }
 
 // receives a VALID guess, increaments turn, and returns count
@@ -37,16 +75,11 @@ FBullCowCount FBullCowGame::SubmitGuess(FString Guess)
 	// increament the turn number
 	MyCurrentTry++;
 
-	// TODO: Prevent The Number Input
-
 	// loop through all letters in the guess
 	int32 HiddenWordLength = MyHiddenWord.length();
 
 	// setup a return variable
 	FBullCowCount BullCowCount;
-
-	// checks for repeating characters.
-	// maybe we need to call "checkGuessValidity" in here...
 
 	// checking for Guess length if increases than return
 	if (Guess.length() > HiddenWordLength) return BullCowCount;

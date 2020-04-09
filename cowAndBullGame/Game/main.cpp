@@ -1,15 +1,24 @@
+/* 
+This is the console executable, that makes use of the BullCow class
+This acts as the view in MVC pattern, and is responsible for all
+user interaction, For game logic see the FBullCowGame class.
+*/
+
 #include<iostream>
 #include<string>
 #include "FBullCowGame.h"
 
+using FText = std::string;
+using int32 = int;
+
 void PrintIntro();
 void PlayGame();
 bool AskToPlayAgain();
-std::string GetGuess();
+FText GetGuess();
 
 FBullCowGame BCGame; // instantiate a new Game
 
-const std::string EMPTY_STRING = "";
+const FText EMPTY_STRING = "";
 
 // the entry point for out application
 int main()
@@ -27,14 +36,14 @@ int main()
 void PlayGame()
 {
 	BCGame.Reset();
-	int MaxTries = BCGame.GetMaxTries();
+	int32 MaxTries = BCGame.GetMaxTries();
 
 	// loop for the number of turns asking for guesses
 	// TODO change from FOR to Whilc loop once we are validating tries
 	while (BCGame.GetCurrentTryCount() < MaxTries)
 	{
 		// TODO: make loop checking for valid guesses...
-		std::string Guess = GetGuess();
+		FText Guess = GetGuess();
 
 		// Submit valid guess to the game
 		// Print number of bulls and cows
@@ -43,13 +52,13 @@ void PlayGame()
 	}
 }
 
-std::string GetGuess()
+FText GetGuess()
 {
 	// get a guess from the player
-	int currentTry = BCGame.GetCurrentTryCount();
-	int maxTries = BCGame.GetMaxTries();
+	int32 currentTry = BCGame.GetCurrentTryCount();
+	int32 maxTries = BCGame.GetMaxTries();
 	std::cout << "Try (" << currentTry << "/" << maxTries << ") Enter your guess: ";
-	std::string Guess = EMPTY_STRING;
+	FText Guess = EMPTY_STRING;
 	std::getline(std::cin, Guess);
 	return Guess;
 }
@@ -57,7 +66,7 @@ std::string GetGuess()
 void PrintIntro()
 {
 	// introduce the game
-	constexpr int WORD_LENTH = 9;
+	constexpr int32 WORD_LENTH = 9;
 	std::cout << "Welcome to Bulls and Cows, a fun word game.\n"; // following inconsistency meaning if using \n than use only that, btw \n doesn't flesh the output buffer
 	std::cout << "Can you guess the " << WORD_LENTH;
 	std::cout << " lette isogram I'm thinking of?\n";
@@ -68,7 +77,7 @@ void PrintIntro()
 bool AskToPlayAgain()
 {
 	std::cout << "Do you want to play again (y/n)?";
-	std::string Response = EMPTY_STRING;
+	FText Response = EMPTY_STRING;
 	std::getline(std::cin, Response);
 	return (Response[0] == 'y') || (Response[0] == 'Y');
 }

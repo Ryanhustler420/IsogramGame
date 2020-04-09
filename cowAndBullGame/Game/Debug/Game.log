@@ -1,4 +1,5 @@
 ﻿  FBullCowGame.cpp
   main.cpp
+C:\Users\TimeMAchine\Documents\GitHub\IsogramGame\cowAndBullGame\Game\main.cpp(41,15): warning C4101: 'BCGame': unreferenced local variable
   Generating Code...
   Game.vcxproj -> C:\Users\TimeMAchine\Documents\GitHub\IsogramGame\cowAndBullGame\Debug\Game.exe

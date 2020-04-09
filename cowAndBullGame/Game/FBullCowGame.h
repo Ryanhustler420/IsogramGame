@@ -30,7 +30,6 @@ public:
 	int32 GetCurrentTryCount() const;
 	int32 GetHiddenWordLength() const;
 	bool IsGameWon() const;
-	bool IsLowerCase(FString) const;
 	FString GetCurrentHiddenWord() const;
 	
 	EGuessWordStatus checkGuessValidity(FString); // TODO: make a more rich return value.
@@ -48,4 +47,5 @@ private:
 	bool bGameIsWon;
 
 	bool IsIsogram(FString) const;
+	bool IsLowerCase(FString) const;
 };

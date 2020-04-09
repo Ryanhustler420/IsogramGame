@@ -85,18 +85,17 @@ FText GetValidGuess()
 		switch (Status)
 		{
 			case EGuessWordStatus::Not_Isogram:
-				std::cout << "You entered repeated letters, Please enter isogram word only!!!\n";
+				std::cout << "You entered repeated letters, Please enter isogram word only!!!\n\n";
 				break;
 			case EGuessWordStatus::Wrong_Length:
-				std::cout << "Please enter a " << BCGame.GetHiddenWordLength() << " letter word.\n";
+				std::cout << "Please enter a " << BCGame.GetHiddenWordLength() << " letter word.\n\n";
 				break;
 			case EGuessWordStatus::Not_LowerCase:
-				std::cout << "Please don't use upper case letter(s).\n";
+				std::cout << "Please don't use upper case letter(s).\n\n";
 				break;
 			default:
 				break; // assume the guess is valid
 		}
-		std::cout << std::endl;
 	} while (Status != EGuessWordStatus::OK);
 	return Guess;
 }

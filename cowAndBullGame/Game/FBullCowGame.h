@@ -5,14 +5,13 @@ class FBullCowGame
 {
 
 public:
+	int GetMaxTries() const; // const only works inside class only
+	int GetCurrentTryCount() const;
+	bool IsGameWon() const;
+	
 	void Reset(); // TODO: make a more rich return value.
-	int GetMaxTries();
-	int GetCurrentTryCount();
-	bool IsGameWon();
 	bool checkGuessValidity(std::string); // TODO: make a more rich return value.
-	// void PlayGame();
-	// bool IsIsogram();
-	// bool IsGivenWordLengthMatchWithHiddenWord();
+
 
 // Please try and ignore this and focus on the interface above ^^
 private:

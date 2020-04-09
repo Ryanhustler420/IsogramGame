@@ -14,7 +14,7 @@ using int32 = int;
 void PrintIntro();
 void PlayGame();
 bool AskToPlayAgain();
-FText GetGuess();
+FText GetValidGuess();
 
 FBullCowGame BCGame; // instantiate a new Game
 
@@ -41,9 +41,7 @@ void PlayGame()
 	// loop for the number of turns asking for guesses
 	while (BCGame.GetCurrentTryCount() < MaxTries) // TODO change from FOR to Whilc loop once we are validating tries
 	{
-		FText Guess = GetGuess();
-
-		EGuessWordStatus Status = BCGame.checkGuessValidity(Guess);
+		FText Guess = GetValidGuess();
 
 		// Submit valid guess to the game
 		FBullCowCount BullCowCount = BCGame.SubmitGuess(Guess);
@@ -55,15 +53,35 @@ void PlayGame()
 	}
 }
 
-FText GetGuess() // TODO: change to get validGuess
+// loop continually until the user gives a valid guess
+FText GetValidGuess()
 {
-	// get a guess from the player
-	int32 currentTry = BCGame.GetCurrentTryCount();
-	int32 maxTries = BCGame.GetMaxTries();
-	std::cout << "Try (" << currentTry << "/" << maxTries << ") Enter your guess: ";
-	FText Guess = EMPTY_STRING;
-	std::getline(std::cin, Guess);
-	return Guess;
+	EGuessWordStatus Status = EGuessWordStatus::Invalid_Status;
+	do {
+		// get a guess from the player
+		int32 currentTry = BCGame.GetCurrentTryCount();
+		int32 maxTries = BCGame.GetMaxTries();
+		std::cout << "Try (" << currentTry << "/" << maxTries << ") Enter your guess: ";
+		FText Guess = EMPTY_STRING;
+		std::getline(std::cin, Guess);
+
+		Status = BCGame.checkGuessValidity(Guess);
+		switch (Status)
+		{
+			case EGuessWordStatus::Not_Isogram:
+				std::cout << "You entered repeated letters, Please enter isogram word only!!!\n";
+				break;
+			case EGuessWordStatus::Wrong_Length:
+				std::cout << "Please enter a " << BCGame.GetHiddenWordLength() << " letter word.\n";
+				break;
+			case EGuessWordStatus::Not_LowerCase:
+				std::cout << "Please don't use upper case letter(s).\n";
+				break;
+			default:
+				return Guess;
+		}
+		std::cout << std::endl;
+	} while (Status != EGuessWordStatus::OK);
 }
 
 void PrintIntro()

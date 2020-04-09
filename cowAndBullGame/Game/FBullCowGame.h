@@ -20,6 +20,7 @@ struct FBullCowCount
 
 enum class EGuessWordStatus
 {
+	Invalid_Status,
 	OK, 
 	Not_Isogram,
 	Wrong_Length,

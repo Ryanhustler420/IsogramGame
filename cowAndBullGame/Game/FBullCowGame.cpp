@@ -1,9 +1,10 @@
+#pragma once
 #include "FBullCowGame.h"
 
 // these below two lines will go togather.
 #include<map>
+// below two line to make the syntax Unreal Engine Friendly
 #define TMap std::map // this is simply like cut and paste like "using" keyword.
-
 using int32 = int;
 
 FBullCowGame::FBullCowGame(){Reset();} // default constructor
@@ -24,7 +25,7 @@ void FBullCowGame::Reset()
 	// constexpr int MAX_TRIES = 8;
 	// constexpr int MAX_TRIES = { 8 };
 	// constexpr int MAX_TRIES {8}; // this is anyways redandunt
-	const FString HIDDEN_WORD = "plane";
+	const FString HIDDEN_WORD = "plane"; // this MUST be a isogram
 	MyHiddenWord = HIDDEN_WORD;
 
 	bGameIsWon = false;

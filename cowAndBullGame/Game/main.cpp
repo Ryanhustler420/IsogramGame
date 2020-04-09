@@ -3,27 +3,29 @@
 
 using namespace std;
 
-const string EMPTY_STRING = "";
-
-// we need this empty body function signature at the top because the program needs to know which functions are gonna be the part of this program.
 void PrintIntro();
+void PlayGame();
 string GetGuess();
+
+const string EMPTY_STRING = "";
 
 // the entry point for out application
 int main()
 {
 	PrintIntro();
+	PlayGame();
+	return 0; // exit the application
+}
 
+void PlayGame()
+{
 	// loop for the number of turns asking for guesses
 	constexpr int NUMBER_OF_TURNS = 5;
 	for (int count = 1; count <= NUMBER_OF_TURNS; count++)
 	{
 		cout << "Your guess was: " << GetGuess();
-		cout << endl;
+		cout << endl << endl;
 	}
-
-	cout << endl;
-	return 0;
 }
 
 string GetGuess() 

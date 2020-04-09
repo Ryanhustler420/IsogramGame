@@ -33,7 +33,6 @@ public:
 	bool IsLowerCase(FString) const;
 	FString GetCurrentHiddenWord() const;
 	
-	bool IsIsogram(FString);
 	EGuessWordStatus checkGuessValidity(FString); // TODO: make a more rich return value.
 	
 	void Reset(); // TODO: make a more rich return value.
@@ -47,4 +46,6 @@ private:
 	int32 MyMaxTries;
 	FString MyHiddenWord;
 	bool bGameIsWon;
+
+	bool IsIsogram(FString) const;
 };

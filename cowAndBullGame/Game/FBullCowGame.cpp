@@ -1,5 +1,9 @@
 #include "FBullCowGame.h"
 
+// these below two lines will go togather.
+#include<map>
+#define TMap std::map // this is simply like cut and paste like "using" keyword.
+
 using int32 = int;
 
 FBullCowGame::FBullCowGame(){Reset();}
@@ -21,23 +25,6 @@ void FBullCowGame::Reset()
 
 	MyCurrentTry = 1;
 	return;
-}
-
-bool FBullCowGame::IsIsogram(FString Guess)
-{
-	for (int32 charAt = 0; charAt < Guess.length(); charAt++)
-	{
-		// If at any time we encounter 2 
-		// same characters, return false 
-		for (int32 i = 0; i < Guess.length() - 1; i++) 
-		{
-			for (int32 j = i + 1; j < Guess.length(); j++)
-			{
-				if (Guess[i] == Guess[j]) { return false; }
-			}
-		}
-	}
-	return true;
 }
 
 bool FBullCowGame::IsLowerCase(FString Guess) const
@@ -100,4 +87,27 @@ FBullCowCount FBullCowGame::SubmitValidGuess(FString Guess)
 		bGameIsWon = false;
 
 	return BullCowCount;
+}
+
+bool FBullCowGame::IsIsogram(FString Guess) const
+{
+	// treat 0 & 1 letter words as isoGrams
+	if (Guess.length() <= 1) { return true; }
+
+	// setup our map
+	TMap<char, bool> LetterSeen;
+	for (auto Letter : Guess) 
+	{
+		Letter = tolower(Letter);
+		if (LetterSeen[Letter]) 
+		{
+			return false; // we do NOT have an isogram
+		}
+		else 
+		{
+			LetterSeen[Letter] = true; // add the letter to the map as seen
+		}			
+	}
+	
+	return true; // for example in case where /0 is entered
 }

@@ -13,6 +13,7 @@ public:
 	
 	void Reset(); // TODO: make a more rich return value.
 	bool checkGuessValidity(std::string); // TODO: make a more rich return value.
+	// Provide a method for counting bulls and cows, and increasing turn #
 
 // Please try and ignore this and focus on the interface above ^^
 private:

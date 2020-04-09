@@ -11,13 +11,6 @@ struct FBullCowCount
 	int32 Cows = 0;
 };
 
-// its global so we can even have OK in another enum at all. PLEASE DO NOT USE BELOW CODE.
-//	enum EWordStatus
-//	{
-//		OK, 
-//		Not_Isogram
-//	};
-
 enum class EGuessWordStatus
 {
 	Invalid_Status,
@@ -43,7 +36,7 @@ public:
 	EGuessWordStatus checkGuessValidity(FString); // TODO: make a more rich return value.
 	
 	void Reset(); // TODO: make a more rich return value.
-	FBullCowCount SubmitGuess(FString);
+	FBullCowCount SubmitValidGuess(FString);
 
 // Please try and ignore this and focus on the interface above ^^
 private:

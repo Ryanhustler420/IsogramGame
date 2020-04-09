@@ -2,8 +2,6 @@
 C:\Users\TimeMAchine\Documents\GitHub\IsogramGame\cowAndBullGame\Game\FBullCowGame.cpp(25,32): warning C4018: '<': signed/unsigned mismatch
 C:\Users\TimeMAchine\Documents\GitHub\IsogramGame\cowAndBullGame\Game\FBullCowGame.cpp(29,23): warning C4018: '<': signed/unsigned mismatch
 C:\Users\TimeMAchine\Documents\GitHub\IsogramGame\cowAndBullGame\Game\FBullCowGame.cpp(31,28): warning C4018: '<': signed/unsigned mismatch
-C:\Users\TimeMAchine\Documents\GitHub\IsogramGame\cowAndBullGame\Game\FBullCowGame.cpp(85,21): warning C4018: '>': signed/unsigned mismatch
   main.cpp
   Generating Code...
-C:\Users\TimeMAchine\Documents\GitHub\IsogramGame\cowAndBullGame\Game\main.cpp(87): warning C4715: 'GetValidGuess': not all control paths return a value
   Game.vcxproj -> C:\Users\TimeMAchine\Documents\GitHub\IsogramGame\cowAndBullGame\Debug\Game.exe

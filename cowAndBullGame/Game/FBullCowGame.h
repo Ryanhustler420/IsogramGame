@@ -11,6 +11,21 @@ struct FBullCowCount
 	int32 Cows = 0;
 };
 
+// its global so we can even have OK in another enum at all. PLEASE DO NOT USE BELOW CODE.
+//	enum EWordStatus
+//	{
+//		OK, 
+//		Not_Isogram
+//	};
+
+enum class EWordStatus
+{
+	OK, 
+	Not_Isogram,
+	Wrong_Length,
+	Not_LowerCase
+};
+
 class FBullCowGame 
 {
 
@@ -20,8 +35,9 @@ public:
 	int32 GetMaxTries() const; // const only works inside class only
 	int32 GetCurrentTryCount() const;
 	int32 GetHiddenWordLength() const;
+	
 	bool IsGameWon() const;
-	bool checkGuessValidity(FString) const; // TODO: make a more rich return value.
+	EWordStatus checkGuessValidity(FString) const; // TODO: make a more rich return value.
 	
 	void Reset(); // TODO: make a more rich return value.
 	FBullCowCount SubmitGuess(FString);

@@ -44,3 +44,12 @@ show that the game has an image at all.
 -> maybe we can provide a time limit for the guesses.
 
 **REMEMBER: if a solution is a house than project is like a room in that house.**
+
+
+## Starting 
+
+> Create an Empty Application With no boilder plate or any header files, just pure empty, for this to work follow below steps.
+- open vs
+- keep project name "Game"
+- keep solution name "cowAndBullGame"
+- click Done or Create

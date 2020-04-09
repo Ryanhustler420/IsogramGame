@@ -64,7 +64,7 @@ void PrintGameSummary() {
 	else
 	{
 		std::cout << "Ops! You lose the game, better luck next time\n";
-		std::cout << "ANSWER WAS: " << BCGame.GetCurrentHiddenWord() << "\n";
+		std::cout << "THE ANSWER WAS: " << BCGame.GetCurrentHiddenWord() << "\n";
 	}
 	return;
 }

@@ -6,23 +6,28 @@
 
 using int32 = int;
 
-FBullCowGame::FBullCowGame(){Reset();}
+FBullCowGame::FBullCowGame(){Reset();} // default constructor
 
-int32 FBullCowGame::GetMaxTries() const {return MyMaxTries;}
 int32 FBullCowGame::GetCurrentTryCount() const {return MyCurrentTry;}
 int32 FBullCowGame::GetHiddenWordLength() const{return MyHiddenWord.length();}
 FString FBullCowGame::GetCurrentHiddenWord() const { return MyHiddenWord; }
 bool FBullCowGame::IsGameWon() const{return bGameIsWon;}
 
+int32 FBullCowGame::GetMaxTries() const { 
+	TMap<int32, int32> WordLengthToMaxTries{ {3, 4}, {4, 7}, {5, 10}, {6, 15}, {7, 20} };
+	return WordLengthToMaxTries[MyHiddenWord.length()];
+}
+
 void FBullCowGame::Reset()
 {
-	constexpr int MAX_TRIES = 8;
-	const FString HIDDEN_WORD = "ant";
-	
-	MyMaxTries = MAX_TRIES;
+	// this is just a demo on how we can write this in different way
+	// constexpr int MAX_TRIES = 8;
+	// constexpr int MAX_TRIES = { 8 };
+	// constexpr int MAX_TRIES {8}; // this is anyways redandunt
+	const FString HIDDEN_WORD = "plane";
 	MyHiddenWord = HIDDEN_WORD;
-	bGameIsWon = false;
 
+	bGameIsWon = false;
 	MyCurrentTry = 1;
 	return;
 }

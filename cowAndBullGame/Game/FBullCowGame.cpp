@@ -7,6 +7,7 @@ FBullCowGame::FBullCowGame(){Reset();}
 int32 FBullCowGame::GetMaxTries() const {return MyMaxTries;}
 int32 FBullCowGame::GetCurrentTryCount() const {return MyCurrentTry;}
 int32 FBullCowGame::GetHiddenWordLength() const{return MyHiddenWord.length();}
+FString FBullCowGame::GetCurrentHiddenWord() const { return MyHiddenWord; }
 bool FBullCowGame::IsGameWon() const{return bGameIsWon;}
 
 void FBullCowGame::Reset()

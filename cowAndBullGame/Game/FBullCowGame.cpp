@@ -38,16 +38,54 @@ bool FBullCowGame::checkGuessValidity(FString)
 }
 
 // receives a VALID guess, increaments turn, and returns count
-BullCowCount FBullCowGame::SubmitGuess(FString)
+FBullCowCount FBullCowGame::SubmitGuess(FString Guess)
 {
 	// increament the turn number
 	MyCurrentTry++;
 
-	// setup a return variable
-	BullCowCount BullCowCount;
+	// TODO: Prevent The Number Input
 
 	// loop through all letters in the guess
-		// compare letters against the hidden word
+	int32 HiddenWordLength = MyHiddenWord.length();
 
+	// setup a return variable
+	FBullCowCount BullCowCount;
+
+	// checks for repeating characters.
+	// maybe we need to call "checkGuessValidity" in here...
+
+	// checking for Guess length if increases than return
+	if (Guess.length() > HiddenWordLength) return BullCowCount;
+
+	for (int32 i = 0; i < HiddenWordLength; i++)
+	{
+		// compare letters against the hidden word
+		for (int32 j = 0; j < HiddenWordLength; j++)
+		{
+			char currentHiddenChar = MyHiddenWord[i];
+			// We need to first check if "first char of hidden" word is at the right position of Guessed Word.
+			if (currentHiddenChar == Guess[j])
+			{
+				BullCowCount.Bulls++;
+			}
+			else
+			{
+				// checks if the word is even present in the string at all.
+				for (int32 nestCheckCounter = i + 1; nestCheckCounter < Guess.length(); nestCheckCounter++)
+				{
+					if (currentHiddenChar == Guess[nestCheckCounter]) {
+						BullCowCount.Cows++;
+						break;
+					}
+				}
+			}
+
+			// bull -> right char at the right position
+			// cow -> right char at the wrong position
+
+			// hidden word -> hello
+			// guessed word -> holle
+		}
+	}
 	return BullCowCount;
 }

@@ -96,3 +96,5 @@ int main()
 }
 
 ```
+
+We're closing this game here...
